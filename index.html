@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Atlas Earth</title>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript" src="script.js"></script>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <form onsubmit="">
+        <label for="common">Common:</label>
+        <input type="number" id="common" name="common" value="0">
+        <label for="rare">Rare:</label>
+        <input type="number" id="rare" name="rare" value="0">
+        <label for="epic">Epic:</label>
+        <input type="number" id="epic" name="epic" value="0">
+        <label for="legendary">Legendary:</label>
+        <input type="number" id="legendary" name="legendary" value="0">
+        <label for="passport">Passport:</label>
+        <input type="number" id="passport" name="passport" value="0">
+        <button type="submit">Submit</button>
+    </form>
+
+    <span id="total">Total Per Second: </span><br><br>
+    <span id="thirtyX">Total Per Second with 30X: </span><br>
+    <span id="fiftyX">Total Per Second with 50X: </span><br><br>
+    <span id="perDay">Total Per Day: </span><br>
+    <span id="perDay30x">Total Per Day with 30X: </span><br><br>
+    <span id="days">Total Over 30 Days: </span><br>
+    <span id="daysWithBonus">Total Over 30 Days With 30X: </span><br>
+    <hr>
+
+    <div id="piechart"></div>
+
+    <hr>
+
+    <img src="./images/Screenshot_20240115_091627_Atlas Earth.jpg" alt="">
+    <img src="./images/Screenshot_20240115_091949_Atlas Earth.jpg" alt="">
+</body>
+</html>
