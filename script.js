@@ -50,7 +50,7 @@ document.addEventListener('DOMContentLoaded', function () {
         chartOptions = {
             title: 'Rarities Breakdown',
             colors: ['#00D573', '#38AFFB', '#CB4DF8', '#FDE001'],
-            fontName: 'Comic Neue, cursive'
+            fontName: 'Comic Neue, cursive',
         };
 
         var chart = new google.visualization.PieChart(document.getElementById('piechart'));
