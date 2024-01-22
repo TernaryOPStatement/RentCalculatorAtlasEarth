@@ -51,6 +51,12 @@ document.addEventListener('DOMContentLoaded', function () {
             title: 'Rarities Breakdown',
             colors: ['#00D573', '#38AFFB', '#CB4DF8', '#FDE001'],
             fontName: 'Comic Neue, cursive',
+            pieSliceTextStyle: { color: 'black' },
+            legend: { textStyle: { color: 'black' } },
+            chartArea: {
+                width: '80%',
+                height: '80%'
+            },
         };
 
         var chart = new google.visualization.PieChart(document.getElementById('piechart'));

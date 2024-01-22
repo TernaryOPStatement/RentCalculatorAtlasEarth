@@ -19,7 +19,6 @@ button {
 
 img {
     height: 600px;
-    /* width: 80%; */
     margin-top: 5px;
     margin-bottom: 5px;
     border-radius: 10px;
@@ -27,16 +26,15 @@ img {
 }
 
  .logo {
-    /* height: 400px; */
     margin-bottom: 5px;
     box-shadow: none;
  }
  #piechart {
+    color: black;
     width: 100%;
  }
- 
+
  body {
-    font-family: 'Comic Neue', cursive;
+    font-family: 'Luckiest Guy', sans-serif;
     background-color: #f8f9fa;
-    font-weight: bold;
 }
