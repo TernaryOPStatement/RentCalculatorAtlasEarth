@@ -95,3 +95,7 @@ function Total(c, r, e, l, p, v) {
 function PerDay(c, r, e, l, p, v) {
     return Total(c, r, e, l, p, v) * 60 * 60 * 24;
 }
+
+function clearInputValue(input) {
+    input.value = "";
+}

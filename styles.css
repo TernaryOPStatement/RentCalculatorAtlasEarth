@@ -34,3 +34,9 @@ img {
  #piechart {
     width: 100%;
  }
+ 
+ body {
+    font-family: 'Comic Neue', cursive;
+    background-color: #f8f9fa;
+    font-weight: bold;
+}
