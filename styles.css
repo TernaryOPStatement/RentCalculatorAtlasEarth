@@ -29,6 +29,10 @@ img {
     margin-bottom: 5px;
     box-shadow: none;
  }
+
+ .coin-small {
+    height: 25px;
+ }
  #piechart {
     color: black;
     width: 100%;
@@ -37,4 +41,24 @@ img {
  body {
     font-family: 'Luckiest Guy', sans-serif;
     background-color: #f8f9fa;
+}
+
+.coin {
+    height: 50px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+th, td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: right;
+}
+th {
+    color: white;
+    font-weight: 100;
+    background-color: green;
 }

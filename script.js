@@ -45,7 +45,7 @@ document.addEventListener('DOMContentLoaded', function () {
             ['Rare', _r],
             ['Epic', _e],
             ['Legendary', _l]
-        ]);
+        ]); 
 
         chartOptions = {
             title: 'Rarities Breakdown',
