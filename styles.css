@@ -45,6 +45,8 @@ img {
     font-family: 'Luckiest Guy', sans-serif;
     background-color: #f8f9fa;
     /* overflow: hidden; */ /* Hiding the scrollbar locks the page from scrolling and wont work*/
+    display: flex;
+    flex-direction: column;
 }
 
 .coin {
