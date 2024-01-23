@@ -36,21 +36,27 @@ img {
  #piechart {
     color: black;
     width: 100%;
+    height: 391px;
+    margin-top: 20px;
+    box-shadow: -8px 8px 8px rgba(0, 0, 0, 0.5);
  }
 
  body {
     font-family: 'Luckiest Guy', sans-serif;
     background-color: #f8f9fa;
+    /* overflow: hidden; */ /* Hiding the scrollbar locks the page from scrolling and wont work*/
 }
 
 .coin {
-    height: 50px;
+    height: 38px;
+    margin-top: auto;
 }
 
 table {
     width: 100%;
     border-collapse: collapse;
     margin-top: 20px;
+    box-shadow: -8px 8px 8px rgba(0, 0, 0, 0.5);
 }
 th, td {
     border: 1px solid #ddd;
@@ -62,3 +68,32 @@ th {
     font-weight: 100;
     background-color: green;
 }
+
+footer, nav, button {
+    background-color: green !important;
+    color: white !important;
+}
+
+button {
+    border-radius: 10px;
+    border-color: green !important;
+}
+
+footer a {
+    color: white;
+}
+
+footer a:hover {
+    color: white;
+    opacity: 50%;
+}
+
+body, html {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+  }
+
+::-webkit-scrollbar {
+    width: .01px;
+  }

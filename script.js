@@ -18,6 +18,10 @@ document.addEventListener('DOMContentLoaded', function () {
         _e = parseInt(document.getElementById("epic").value, 10)
         _l = parseInt(document.getElementById("legendary").value, 10)
 
+        document.getElementById("totalParcels").innerHTML = "Total Parcels: " + (_c + _r + _e + _l);
+
+        document.getElementById("boost").innerHTML = `Passport Boost: ${passport}%`;
+
         document.getElementById("total").innerHTML = "Total Per Second: "  + Total(common, rare, epic, legendary, passport, 1).toFixed(10);
 
         document.getElementById("thirtyX").innerHTML = "Total Per Second with 30X: " + Total(common, rare, epic, legendary, passport, 30).toFixed(10);
@@ -38,31 +42,6 @@ document.addEventListener('DOMContentLoaded', function () {
     google.charts.load('current', {'packages':['corechart']});
     google.charts.setOnLoadCallback(drawChart);
 
-    function drawChart() {
-        chartData = google.visualization.arrayToDataTable([
-            ['Rarity', 'Units'],
-            ['Common', _c],
-            ['Rare', _r],
-            ['Epic', _e],
-            ['Legendary', _l]
-        ]); 
-
-        chartOptions = {
-            title: 'Rarities Breakdown',
-            colors: ['#00D573', '#38AFFB', '#CB4DF8', '#FDE001'],
-            fontName: 'Comic Neue, cursive',
-            pieSliceTextStyle: { color: 'black' },
-            legend: { textStyle: { color: 'black' } },
-            chartArea: {
-                width: '80%',
-                height: '80%'
-            },
-        };
-
-        var chart = new google.visualization.PieChart(document.getElementById('piechart'));
-
-        chart.draw(chartData, chartOptions);
-    }
 });
 
 function TotalPassport(p) {
@@ -105,3 +84,55 @@ function PerDay(c, r, e, l, p, v) {
 function clearInputValue(input) {
     input.value = "";
 }
+
+function resetForm() {
+    // Reset input values
+    document.getElementById('common').value = '0';
+    document.getElementById('rare').value = '0';
+    document.getElementById('epic').value = '0';
+    document.getElementById('legendary').value = '0';
+    document.getElementById('passport').value = '0';
+
+    // Reset span text
+    document.getElementById('totalParcels').innerText = 'Total Parcels: 0';
+    document.getElementById('boost').innerText = 'Passport Boost: 0%';
+    document.getElementById('total').innerText = 'Total Per Second: 0.00';
+    document.getElementById('thirtyX').innerText = 'Total Per Second with 30X: 0.00';
+    document.getElementById('fiftyX').innerText = 'Total Per Second with 50X: 0.00';
+    document.getElementById('perDay').innerText = 'Total Per Day: 0.00';
+    document.getElementById('perDay30x').innerText = 'Total Per Day with 30X: 0.00';
+    document.getElementById('days').innerText = 'Total Over 30 Days: 0.00';
+    document.getElementById('daysWithBonus').innerText = 'Total Over 30 Days With 30X: 0.00';
+
+    _c = 0;
+    _r = 0;
+    _e = 0;
+    _l = 0;
+
+    drawChart();
+}
+
+
+function drawChart() {
+    chartData = google.visualization.arrayToDataTable([
+        ['Rarity', 'Units'],
+        ['Common', _c],
+        ['Rare', _r],
+        ['Epic', _e],
+        ['Legendary', _l]
+    ]); 
+
+    chartOptions = {
+        colors: ['#00D573', '#38AFFB', '#CB4DF8', '#FDE001'],
+        fontName: 'Comic Neue, cursive',
+        pieSliceTextStyle: { color: 'black', bold: true },
+        legend: { textStyle: { color: 'black', bold: true } },
+        chartArea: {
+            width: '80%',
+            height: '80%'
+        },
+    };
+
+    var chart = new google.visualization.PieChart(document.getElementById('piechart'));
+    chart.draw(chartData, chartOptions);
+};

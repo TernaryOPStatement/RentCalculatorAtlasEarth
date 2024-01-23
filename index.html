@@ -16,7 +16,7 @@
 </head>
 <body>
 
-    <nav class="navbar navbar-expand-lg navbar-dark btn-success">
+    <nav class="navbar navbar-expand-lg navbar-dark">
         <a class="navbar-brand" href="https://github.com/TernaryOPStatement/RentCalculatorAtlasEarth">Rent Calculator Atlas Earth</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -29,6 +29,9 @@
                 <li class="nav-item">
                     <a class="nav-link" href="./about.html">About</a>
                 </li>
+                <li class="nav-item">
+                    <a href="https://r.atlasearth.com/lLSDIA40AGb" class="nav-link px-2 text-body-secondary">Join the fun</a>
+                </li>
             </ul>
         </div>
     </nav>
@@ -39,87 +42,93 @@
             <div class="col-md-6 order-sm-2 order-md-1 align-self-center">
                 <form onsubmit="">
                     <label for="common">Common:</label>
-                    <input type="number" id="common" name="common" value="0" onfocus="clearInputValue(this)"><br>
+                    <input type="number" id="common" name="common" value="0" min="0" onfocus="clearInputValue(this)"><br>
                     <label for="rare">Rare:</label>
-                    <input type="number" id="rare" name="rare" value="0" onfocus="clearInputValue(this)"><br>
+                    <input type="number" id="rare" name="rare" value="0" min="0" onfocus="clearInputValue(this)"><br>
                     <label for="epic">Epic:</label>
-                    <input type="number" id="epic" name="epic" value="0" onfocus="clearInputValue(this)"><br>
+                    <input type="number" id="epic" name="epic" value="0" min="0" onfocus="clearInputValue(this)"><br>
                     <label for="legendary">Legendary:</label>
-                    <input type="number" id="legendary" name="legendary" value="0" onfocus="clearInputValue(this)"><br>
+                    <input type="number" id="legendary" name="legendary" value="0" min="0" onfocus="clearInputValue(this)"><br>
                     <label for="passport">Badges:</label>
-                    <input type="number" id="passport" name="passport" value="0" onfocus="clearInputValue(this)"><br>
-                    <button type="submit" class="btn btn-success">Submit</button>
+                    <input type="number" id="passport" name="passport" value="0" min="0" onfocus="clearInputValue(this)"><br>
+                    <button type="submit" class="btn">Submit</button>
+                    <button type="button" class="btn" onclick="resetForm()">Clear</button>
                 </form>
-                <span id="total">Total Per Second: </span><br><br>
-                <span id="thirtyX">Total Per Second with 30X: </span><br>
-                <span id="fiftyX">Total Per Second with 50X: </span><br><br>
-                <span id="perDay">Total Per Day: </span><br>
-                <span id="perDay30x">Total Per Day with 30X: </span><br><br>
-                <span id="days">Total Over 30 Days: </span><br>
-                <span id="daysWithBonus">Total Over 30 Days With 30X: </span><br>
+                <span id="totalParcels">Total Parcels: 0</span><br>
+                <span id="boost">Passport Boost: 0%</span><br>
+                <span id="total">Total Per Second: 0.00</span><br><br>
+                <span id="thirtyX">Total Per Second with 30X: 0.00</span><br>
+                <span id="fiftyX">Total Per Second with 50X: 0.00</span><br><br>
+                <span id="perDay">Total Per Day: 0.00</span><br>
+                <span id="perDay30x">Total Per Day with 30X: 0.00</span><br><br>
+                <span id="days">Total Over 30 Days: 0.00</span><br>
+                <span id="daysWithBonus">Total Over 30 Days With 30X: 0.00</span><br>
             </div>
             <div class="col-md-6 align-self-center order-sm-1 order-md-2">
                 <img src="./images/bg-globe.png" alt="" class="logo img-fluid">
             </div>
         </div>
 <br>
-        <div class="row justify-content-center">
+        <div class="row justify-content-center d-flex flex-wrap align-items-center">
             <div class="col-md-6">
-                <div id="piechart"></div>
+                <h2 class="d-inline">Rarities Breakdown</h2>
+                <div id="piechart"></div><br class="d-lg-none">
+            </div>
+
+            <div class="col-md-6 d-flex flex-wrap align-items-center">
+                <h2 class="d-inline">Daily Login Bonus&MediumSpace;</h2>
+                <img src="./images/coin.png" alt="" class="logo img-fluid coin">
+           
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Day</th>
+                            <th>Free Streak Bonus</th>
+                            <th>Explorer Club Streak Bonus</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>1</td>
+                            <td>1 <img src="./images/coin.png" alt="" class="logo coin-small img-fluid"></td>
+                            <td>90 <img src="./images/coin.png" alt="" class="logo coin-small img-fluid"></td>
+                        </tr>
+                        <tr>
+                            <td>7</td>
+                            <td>8 <img src="./images/coin.png" alt="" class="logo coin-small img-fluid"></td>
+                            <td>180 <img src="./images/coin.png" alt="" class="logo coin-small img-fluid"></td>
+                        </tr>
+                        <tr>
+                            <td>30</td>
+                            <td>50 <img src="./images/coin.png" alt="" class="logo coin-small img-fluid"></td>
+                            <td>500 <img src="./images/coin.png" alt="" class="logo coin-small img-fluid"></td>
+                        </tr>
+                        <tr>
+                            <td>60</td>
+                            <td>80 <img src="./images/coin.png" alt="" class="logo coin-small img-fluid"></td>
+                            <td>650 <img src="./images/coin.png" alt="" class="logo coin-small img-fluid"></td>
+                        </tr>
+                        <tr>
+                            <td>90</td>
+                            <td>200 <img src="./images/coin.png" alt="" class="logo coin-small img-fluid"></td>
+                            <td>1200 <img src="./images/coin.png" alt="" class="logo coin-small img-fluid"></td>
+                        </tr>
+                        <tr>
+                            <td>Total 90 Day Streak Bonus</td>
+                            <td>424 <img src="./images/coin.png" alt="" class="logo coin-small img-fluid"></td>
+                            <td>10370 <img src="./images/coin.png" alt="" class="logo coin-small img-fluid"></td>
+                        </tr>
+                    </tbody>
+                </table>
             </div>
         </div>
 <br>
 <div class="row justify-content-center align-self-center">
-    <div class="col-md-6 text-center">
-        <h2 class="d-inline">Daily Login Bonus</h2>
-        <img src="./images/coin.png" alt="" class="logo img-fluid coin">
-    </div>
+   
 </div>
 
 <div class="row justify-content-center align-self-center">
-    <div class="col-md-6 text-center">
-        <table>
-            <thead>
-                <tr>
-                    <th>Day</th>
-                    <th>Free Streak Bonus</th>
-                    <th>Explorer Club Streak Bonus</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>1</td>
-                    <td>1 <img src="./images/coin.png" alt="" class="logo coin-small img-fluid"></td>
-                    <td>90 <img src="./images/coin.png" alt="" class="logo coin-small img-fluid"></td>
-                </tr>
-                <tr>
-                    <td>7</td>
-                    <td>8 <img src="./images/coin.png" alt="" class="logo coin-small img-fluid"></td>
-                    <td>180 <img src="./images/coin.png" alt="" class="logo coin-small img-fluid"></td>
-                </tr>
-                <tr>
-                    <td>30</td>
-                    <td>50 <img src="./images/coin.png" alt="" class="logo coin-small img-fluid"></td>
-                    <td>500 <img src="./images/coin.png" alt="" class="logo coin-small img-fluid"></td>
-                </tr>
-                <tr>
-                    <td>60</td>
-                    <td>80 <img src="./images/coin.png" alt="" class="logo coin-small img-fluid"></td>
-                    <td>650 <img src="./images/coin.png" alt="" class="logo coin-small img-fluid"></td>
-                </tr>
-                <tr>
-                    <td>90</td>
-                    <td>200 <img src="./images/coin.png" alt="" class="logo coin-small img-fluid"></td>
-                    <td>1200 <img src="./images/coin.png" alt="" class="logo coin-small img-fluid"></td>
-                </tr>
-                <tr>
-                    <td>Total 90 Day Streak Bonus</td>
-                    <td>424 <img src="./images/coin.png" alt="" class="logo coin-small img-fluid"></td>
-                    <td>10370 <img src="./images/coin.png" alt="" class="logo coin-small img-fluid"></td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
+    
 </div> 
 
 <br>
@@ -129,11 +138,19 @@
             </div>
             <div class="col-md-6">
                 <img src="./images/Screenshot_20240115_091949_Atlas Earth.jpg" alt="" class="img-fluid">
-
             </div>
         </div>
 <br>
-    </div>
+</div>
+
+    <footer class="py-3 my-4">
+      <ul class="nav justify-content-center pb-3 mb-3">
+        <li class="nav-item"><a href="#" class="nav-link px-2 text-body-secondary">Home</a></li>
+        <li class="nav-item"><a href="./about.html" class="nav-link px-2 text-body-secondary">About</a></li>
+        <li class="nav-item"><a href="https://r.atlasearth.com/lLSDIA40AGb" class="nav-link px-2 text-body-secondary">Join the fun</a></li>
+      </ul>
+      <p class="text-center text-body-secondary">2024 Torq Development, Inc</p>
+    </footer>
 
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.0.7/dist/umd/popper.min.js"></script>
