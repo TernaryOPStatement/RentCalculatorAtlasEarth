@@ -35,35 +35,36 @@
             </ul>
         </div>
     </nav>
-
+    
+    <ul class="notifications"></ul>
 
     <div class="container">
         <div class="row">
-            <div class="col-md-6 order-sm-2 order-md-1 align-self-center">
+            <div class="col-md-6 order-sm-2 order-md-1 align-self-center holding-div">
                 <form onsubmit="">
                     <label for="common">Common:</label>
-                    <input type="number" id="common" name="common" value="0" min="0" onfocus="clearInputValue(this)"><br>
+                    <input type="number"  class="one0Reset" id="common" name="common" value="0" min="0" onfocus="clearInputValue(this)"><br>
                     <label for="rare">Rare:</label>
-                    <input type="number" id="rare" name="rare" value="0" min="0" onfocus="clearInputValue(this)"><br>
+                    <input type="number"  class="one0Reset" id="rare" name="rare" value="0" min="0" onfocus="clearInputValue(this)"><br>
                     <label for="epic">Epic:</label>
-                    <input type="number" id="epic" name="epic" value="0" min="0" onfocus="clearInputValue(this)"><br>
+                    <input type="number"  class="one0Reset" id="epic" name="epic" value="0" min="0" onfocus="clearInputValue(this)"><br>
                     <label for="legendary">Legendary:</label>
-                    <input type="number" id="legendary" name="legendary" value="0" min="0" onfocus="clearInputValue(this)"><br>
+                    <input type="number"  class="one0Reset" id="legendary" name="legendary" value="0" min="0" onfocus="clearInputValue(this)"><br>
                     <label for="passport">Badges:</label>
-                    <input type="number" id="passport" name="passport" value="0" min="0" onfocus="clearInputValue(this)"><br>
+                    <input type="number"  class="one0Reset" id="passport" name="passport" value="0" min="0" onfocus="clearInputValue(this)"><br>
                     <button type="submit" class="btn">Submit</button>
                     <button type="button" class="btn" onclick="resetForm()">Clear</button>
                 </form>
-                <span id="totalParcels">Total Parcels: 0</span><br>
-                <span id="boost">Passport Boost: 0%</span><br>
-                <span id="total">Total Per Second: 0.00</span><br><br>
-                <span id="thirtyX">Total Per Second with 30X: 0.00</span><br>
-                <span id="fiftyX">Total Per Second with 50X: 0.00</span><br><br>
-                <span id="perDay">Total Per Day: 0.00</span><br>
-                <span id="perDay30x">Total Per Day with 30X: 0.00</span><br><br>
-                <span id="days">Total Over 30 Days: 0.00</span><br>
-                <span id="daysWithBonus">Total Over 30 Days With 30X: </span> <span id="textToCopy">0.00</span>
-                <img id="copyIcon" class="logo img-fluid" src="./images/copy-48.png" alt="Copy">
+                <span>Total Parcels:&nbsp;<span class="one0Reset" id="totalParcels">0</span></span><br>
+                <span>Passport Boost:&nbsp;<span class="one0Reset" id="boost">0</span>%</span><br>
+                <span>Total Per Second:&nbsp;<span class="three0Reset"  id="total">0.00</span></span><br><br>
+                <span>Total Per Second with 30X:&nbsp;<span class="three0Reset" id="thirtyX">0.00</span></span><br>
+                <span>Total Per Second with 50X:&nbsp;<span class="three0Reset" id="fiftyX">0.00</span></span><br><br>
+                <span>Total Per Day:&nbsp;<span class="three0Reset" id="perDay">0.00</span></span><br>
+                <span>Total Per Day with 30X&nbsp;<span class="three0Reset" id="perDay30x">0.00</span></span><br><br>
+                <span>Total Over 30 Days: &nbsp;<span class="three0Reset"  id="days">0.00</span></span><br>
+                <span>Total Over 30 Days With 30X:&nbsp;$<span class="three0Reset" id="textToCopy">0.00</span></span>
+                <img id="copyIcon" class="logo img-fluid hl-div" src="./images/copy-48.png" alt="Copy">
               <br>
             </div>
             <div class="col-md-6 align-self-center order-sm-1 order-md-2">

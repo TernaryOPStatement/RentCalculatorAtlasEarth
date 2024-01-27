@@ -1,7 +1,60 @@
+let notifications;
+divs = document.querySelectorAll(".holding-div .hl-div");
+
+// Object containing details for different types of toasts
+let toastDetails = {
+    timer: 5000,
+    success: {
+        icon: 'fa-circle-check',
+        text: "Success: copied to clipboard!"
+    },
+    error: {
+        icon: 'fa-circle-xmark',
+        text: 'Error: This is an error toast.',
+    },
+    warning: {
+        icon: 'fa-triangle-exclamation',
+        text: 'Warning: This is a warning toast.',
+    },
+    info: {
+        icon: 'fa-circle-info',
+        text: 'Info: This is an information toast.',
+    }
+}
+
+const removeToast = (toast) => {
+    toast.classList.add("hide");
+    if(toast.timeoutId) clearTimeout(toast.timeoutId); // Clearing the timeout for the toast
+    setTimeout(() => toast.remove(), 500); // Removing the toast after 500ms
+}
+
+const createToast = (id, customText) => {
+    // Getting the icon and text for the toast based on the id passed
+    const { icon } = toastDetails[id];
+    const toast = document.createElement("li"); // Creating a new 'li' element for the toast
+    toast.className = `toast ${id}`; // Setting the classes for the toast
+    toastDetails.success.text =  document.getElementById("textToCopy").innerHTML +  "hi"
+    // Setting the inner HTML for the toast
+    toast.innerHTML = `<div class="column">
+                         <i class="fa-solid ${icon}"></i>
+                         <span>${customText}</span>
+                      </div>
+                      <i class="fa-solid fa-xmark" onclick="removeToast(this.parentElement)"></i>`;
+    notifications.appendChild(toast); // Append the toast to the notification ul
+    // Setting a timeout to remove the toast after the specified duration
+    toast.timeoutId = setTimeout(() => removeToast(toast), toastDetails.timer);
+}
+
+// Adding a click event listener to each button to create a toast when clicked
+divs.forEach(d => {
+    d.addEventListener("click", () => createToast("success"));
+});
+
 let _c,_r,_e,_l;
 let chartData, chartOptions;
 
 document.addEventListener('DOMContentLoaded', function () {
+    notifications  = document.querySelector(".notifications")
     const form = document.querySelector('form');
 
     form.addEventListener('submit', function (e) {
@@ -43,13 +96,11 @@ document.addEventListener('DOMContentLoaded', function () {
     google.charts.setOnLoadCallback(drawChart);
 
     document.getElementById('copyIcon').addEventListener('click', function() {
-        var textToCopy = document.getElementById('textToCopy').innerText;
-        console.log(textToCopy);
+        const textToCopy = document.getElementById('textToCopy').innerText;
         
         // Create a temporary textarea element
         var textarea = document.createElement('textarea');
         textarea.value = textToCopy;
-    
         // Append the textarea to the body
         document.body.appendChild(textarea);
     
@@ -61,11 +112,13 @@ document.addEventListener('DOMContentLoaded', function () {
         // This is a depreciated command and clipboard API should be used
         // API would require HTTPS this is not HTTPS hosted
         document.execCommand('copy');
+        createToast('success', `${document.getElementById('textToCopy').innerText}<br>Copied to clipboard!`);
     
         // Remove the textarea from the body
         document.body.removeChild(textarea);
 
-        alert(`${document.getElementById("textToCopy").innerHTML} copied to clipboard!`)
+        // security issue do not use alert
+        // alert(`${document.getElementById("textToCopy").innerHTML} copied to clipboard!`)
     
     });
 });
@@ -112,24 +165,16 @@ function clearInputValue(input) {
 }
 
 function resetForm() {
-    // Reset input values
-    document.getElementById('common').value = '0';
-    document.getElementById('rare').value = '0';
-    document.getElementById('epic').value = '0';
-    document.getElementById('legendary').value = '0';
-    document.getElementById('passport').value = '0';
 
-    // Reset span text
-    document.getElementById('totalParcels').innerText = 'Total Parcels: 0';
-    document.getElementById('boost').innerText = 'Passport Boost: 0%';
-    document.getElementById('total').innerText = 'Total Per Second: 0.00';
-    document.getElementById('thirtyX').innerText = 'Total Per Second with 30X: 0.00';
-    document.getElementById('fiftyX').innerText = 'Total Per Second with 50X: 0.00';
-    document.getElementById('perDay').innerText = 'Total Per Day: 0.00';
-    document.getElementById('perDay30x').innerText = 'Total Per Day with 30X: 0.00';
-    document.getElementById('days').innerText = 'Total Over 30 Days: 0.00';
-    document.getElementById('daysWithBonus').innerText = 'Total Over 30 Days With 30X: 0.00';
+    document.querySelectorAll('.one0Reset').forEach(element => {
+        element.value = '0'; // for the inputs
+        element.innerHTML = '0'; // for the span
+    });
 
+    document.querySelectorAll('.three0Reset').forEach(element => {
+        element.innerHTML = '0.00';
+    });
+    
     _c = 0;
     _r = 0;
     _e = 0;
