@@ -71,7 +71,7 @@ document.addEventListener('DOMContentLoaded', function () {
         _e = parseInt(document.getElementById("epic").value, 10)
         _l = parseInt(document.getElementById("legendary").value, 10)
 
-        document.getElementById("totalParcels").innerHTML = "Total Parcels: " + (_c + _r + _e + _l);
+        document.getElementById("totalParcels").innerHTML = _c + _r + _e + _l;
 
         document.getElementById("boost").innerHTML = passport;
 
@@ -116,10 +116,6 @@ document.addEventListener('DOMContentLoaded', function () {
     
         // Remove the textarea from the body
         document.body.removeChild(textarea);
-
-        // security issue do not use alert
-        // alert(`${document.getElementById("textToCopy").innerHTML} copied to clipboard!`)
-    
     });
 });
 
