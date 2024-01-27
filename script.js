@@ -73,19 +73,19 @@ document.addEventListener('DOMContentLoaded', function () {
 
         document.getElementById("totalParcels").innerHTML = "Total Parcels: " + (_c + _r + _e + _l);
 
-        document.getElementById("boost").innerHTML = `Passport Boost: ${passport}%`;
+        document.getElementById("boost").innerHTML = passport;
 
-        document.getElementById("total").innerHTML = "Total Per Second: "  + Total(common, rare, epic, legendary, passport, 1).toFixed(10);
+        document.getElementById("total").innerHTML = Total(common, rare, epic, legendary, passport, 1).toFixed(10);
 
-        document.getElementById("thirtyX").innerHTML = "Total Per Second with 30X: " + Total(common, rare, epic, legendary, passport, 30).toFixed(10);
+        document.getElementById("thirtyX").innerHTML = Total(common, rare, epic, legendary, passport, 30).toFixed(10);
 
-        document.getElementById("fiftyX").innerHTML = "Total Per Second with 50X: " + Total(common, rare, epic, legendary, passport, 50).toFixed(10);
+        document.getElementById("fiftyX").innerHTML = Total(common, rare, epic, legendary, passport, 50).toFixed(10);
 
-        document.getElementById("perDay").innerHTML = "Total Per Day: " + PerDay(common, rare, epic, legendary, passport, 1).toFixed(10);
+        document.getElementById("perDay").innerHTML = PerDay(common, rare, epic, legendary, passport, 1).toFixed(10);
 
-        document.getElementById("perDay30x").innerHTML = "Total Per Day with 30X: " + PerDay(common, rare, epic, legendary, passport, 30).toFixed(10);
+        document.getElementById("perDay30x").innerHTML = PerDay(common, rare, epic, legendary, passport, 30).toFixed(10);
 
-        document.getElementById("days").innerHTML = "Total Over 30 Days: " + PerDay(common, rare, epic, legendary, passport, 1).toFixed(10) * 30;
+        document.getElementById("days").innerHTML = PerDay(common, rare, epic, legendary, passport, 1).toFixed(10) * 30;
 
         document.getElementById("textToCopy").innerHTML = PerDay(common, rare, epic, legendary, passport, 30).toFixed(10) * 30;
 
