@@ -34,7 +34,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
         document.getElementById("days").innerHTML = "Total Over 30 Days: " + PerDay(common, rare, epic, legendary, passport, 1).toFixed(10) * 30;
 
-        document.getElementById("daysWithBonus").innerHTML = "Total Over 30 Days With 30X: " + PerDay(common, rare, epic, legendary, passport, 30).toFixed(10) * 30;
+        document.getElementById("textToCopy").innerHTML = PerDay(common, rare, epic, legendary, passport, 30).toFixed(10) * 30;
 
         drawChart();
     });
@@ -42,6 +42,32 @@ document.addEventListener('DOMContentLoaded', function () {
     google.charts.load('current', {'packages':['corechart']});
     google.charts.setOnLoadCallback(drawChart);
 
+    document.getElementById('copyIcon').addEventListener('click', function() {
+        var textToCopy = document.getElementById('textToCopy').innerText;
+        console.log(textToCopy);
+        
+        // Create a temporary textarea element
+        var textarea = document.createElement('textarea');
+        textarea.value = textToCopy;
+    
+        // Append the textarea to the body
+        document.body.appendChild(textarea);
+    
+        // Select the text in the textarea
+        textarea.select();
+        textarea.setSelectionRange(0, 99999); // For mobile devices
+    
+        // Copy the selected text
+        // This is a depreciated command and clipboard API should be used
+        // API would require HTTPS this is not HTTPS hosted
+        document.execCommand('copy');
+    
+        // Remove the textarea from the body
+        document.body.removeChild(textarea);
+
+        alert(`${document.getElementById("textToCopy").innerHTML} copied to clipboard!`)
+    
+    });
 });
 
 function TotalPassport(p) {

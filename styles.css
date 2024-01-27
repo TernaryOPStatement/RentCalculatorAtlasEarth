@@ -10,6 +10,8 @@ label, input {
 
 button {
     padding: 5px 10px;
+    border-radius: 10px;
+    border-color: green !important;
 }
 
 #piechart {
@@ -76,11 +78,6 @@ footer, nav, button {
     color: white !important;
 }
 
-button {
-    border-radius: 10px;
-    border-color: green !important;
-}
-
 footer a {
     color: white;
 }
@@ -99,3 +96,7 @@ body, html {
 ::-webkit-scrollbar {
     width: .01px;
   }
+
+#copyIcon {
+    cursor: pointer;
+}
