@@ -45,15 +45,15 @@
             <div class="col-md-6 order-sm-2 order-md-1 align-self-center holding-div">
                 <form onsubmit="">
                     <label for="common">Common:</label>
-                    <input type="number"  class="one0Reset" id="common" name="common" value="0" min="0" onfocus="clearInputValue(this)"><br>
+                    <input type="number"  class="one0Reset" id="common" name="common" value="0" min="0" onblur="addInput(this)" onfocus="clearInputValue(this)"><br>
                     <label for="rare">Rare:</label>
-                    <input type="number"  class="one0Reset" id="rare" name="rare" value="0" min="0" onfocus="clearInputValue(this)"><br>
+                    <input type="number"  class="one0Reset" id="rare" name="rare" value="0" min="0" onblur="addInput(this)" onfocus="clearInputValue(this)"><br>
                     <label for="epic">Epic:</label>
-                    <input type="number"  class="one0Reset" id="epic" name="epic" value="0" min="0" onfocus="clearInputValue(this)"><br>
+                    <input type="number"  class="one0Reset" id="epic" name="epic" value="0" min="0" onblur="addInput(this)" onfocus="clearInputValue(this)"><br>
                     <label for="legendary">Legendary:</label>
-                    <input type="number"  class="one0Reset" id="legendary" name="legendary" value="0" min="0" onfocus="clearInputValue(this)"><br>
+                    <input type="number"  class="one0Reset" id="legendary" name="legendary" value="0" onblur="addInput(this)" min="0" onfocus="clearInputValue(this)"><br>
                     <label for="passport">Badges:</label>
-                    <input type="number"  class="one0Reset" id="passport" name="passport" value="0" min="0" onfocus="clearInputValue(this)"><br>
+                    <input type="number"  class="one0Reset" id="passport" name="passport" value="0" onblur="addInput(this)" min="0" onfocus="clearInputValue(this)"><br>
                     <button type="submit" class="btn">Submit</button>
                     <button type="button" class="btn" onclick="resetForm()">Clear</button>
                 </form>

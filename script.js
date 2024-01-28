@@ -1,5 +1,6 @@
 let notifications;
 divs = document.querySelectorAll(".holding-div .hl-div");
+inputs = document.querySelectorAll(".one0Reset");
 
 // Object containing details for different types of toasts
 let toastDetails = {
@@ -49,6 +50,21 @@ const createToast = (id, customText) => {
 divs.forEach(d => {
     d.addEventListener("click", () => createToast("success"));
 });
+
+inputs.forEach(i => {
+    i.addEventListener("focusout", function(e) {
+        var input = e.target;
+        console.log(e.target)
+        if (input.value.trim() === "") {
+          input.value = "0";
+        }
+    })
+})
+function addInput(input) {
+    if (input.value.trim() === "") {
+        input.value = "0";
+      }
+}
 
 let _c,_r,_e,_l;
 let chartData, chartOptions;
